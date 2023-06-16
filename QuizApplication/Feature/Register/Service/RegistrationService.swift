@@ -38,42 +38,39 @@ final class RegistrationServiceImplementation: RegistrationService {
             Future { promise in
                 Auth.auth().createUser(withEmail: details.email,
                                        password: details.password) { res, error in
+                    
+                    if let err = error {
                         
-                        if let err = error {
+                        promise(.failure(err))
+                        
+                    } else {
+                        
+                        if let uid = res?.user.uid {
                             
-                            promise(.failure(err))
+                            let values = [RegistrationKeys.firstName.rawValue: details.firstName,
+                                          RegistrationKeys.lastName.rawValue: details.lastName,
+                                          RegistrationKeys.school.rawValue: details.school,
+                                          RegistrationKeys.groups.rawValue: details.groups] as [String : Any]
                             
-                        } else {
-                            
-                            if let uid = res?.user.uid {
-                                
-                                let values = [RegistrationKeys.firstName.rawValue: details.firstName,
-                                              RegistrationKeys.lastName.rawValue: details.lastName,
-                                              RegistrationKeys.school.rawValue: details.school,
-                                              RegistrationKeys.groups.rawValue: details.groups] as [String : Any]
-                                
-                                Database
-                                    .database()
-                                    .reference()
-                                    .child("users")
-                                    .child(uid)
-                                    .updateChildValues(values) { error, ref in
-                                        
-                                        if let err = error {
-                                            promise(.failure(err))
-                                        } else {
-                                            promise(.success(()))
-                                        }
+                            Database
+                                .database()
+                                .reference()
+                                .child("users")
+                                .child(uid)
+                                .updateChildValues(values) { error, ref in
+                                    
+                                    if let err = error {
+                                        promise(.failure(err))
+                                    } else {
+                                        promise(.success(()))
                                     }
-                            }
+                                }
                         }
                     }
+                }
             }
         }
         .receive(on: RunLoop.main)
         .eraseToAnyPublisher()
     }
 }
-
-
-

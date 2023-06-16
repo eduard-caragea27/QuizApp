@@ -26,6 +26,7 @@ protocol SessionService {
     var state: SessionState { get }
     var userDetails: UserSessionDetails? { get }
     func logout()
+    init()
 }
 
 final class SessionServiceImplementation: ObservableObject, SessionService {
@@ -50,11 +51,13 @@ private extension SessionServiceImplementation {
         
         handler = Auth
             .auth()
-            .addStateDidChangeListener { [weak self] res, user in
+            .addStateDidChangeListener { [weak self] _,_ in
                 guard let self = self else { return }
                 
-                self.state = user == nil ? .loggedOut : .loggedIn
-                if let uid = user?.uid {
+                let currentUser = Auth.auth().currentUser
+                self.state = currentUser == nil ? .loggedOut : .loggedIn
+                
+                if let uid = currentUser?.uid {
                     self.handleRefresh(with: uid)
                 }
             }

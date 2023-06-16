@@ -27,16 +27,16 @@ struct LoginView: View {
                 
                 HStack {
                     Spacer()
-                        NavigationLink(destination: ResetPasswordView(),
-                                       isActive: $showForgotPassword,
-                                       label: {
-                            Button(action: {
-                                showForgotPassword.toggle()
-                            }, label: {
-                                Text("Forgot Password?")
-                            })
-                            .font(.system(size: 16, weight: .bold))
+                    NavigationLink(destination: ResetPasswordView(),
+                                   isActive: $showForgotPassword,
+                                   label: {
+                        Button(action: {
+                            showForgotPassword.toggle()
+                        }, label: {
+                            Text("Forgot Password?")
                         })
+                        .font(.system(size: 16, weight: .bold))
+                    })
                     
                 }
             }
@@ -55,7 +55,6 @@ struct LoginView: View {
         }
         .padding(.horizontal, 15)
         .navigationTitle("Login")
-        
     }
 }
 

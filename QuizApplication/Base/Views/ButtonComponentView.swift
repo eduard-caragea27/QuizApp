@@ -25,7 +25,6 @@ struct ButtonComponentView: View {
         self.handler = handler
     }
     
-    
     var body: some View {
         Button(action: handler,
                label:  {

@@ -10,10 +10,10 @@
 		E40321C229FE6AA100EE67B9 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40321C129FE6AA100EE67B9 /* RegistrationViewModel.swift */; };
 		E40321CA29FE7B2F00EE67B9 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40321C929FE7B2F00EE67B9 /* SessionService.swift */; };
 		E40C3DFE29F542DD0002CE22 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C3DFD29F542DD0002CE22 /* RegistrationService.swift */; };
+		E41DAB492A3B38810034DB76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41DAB482A3B38810034DB76 /* GoogleService-Info.plist */; };
 		E438842629E2B8E600F1BB30 /* QuizApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438842529E2B8E600F1BB30 /* QuizApplicationApp.swift */; };
 		E438842A29E2B8EC00F1BB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E438842929E2B8EC00F1BB30 /* Assets.xcassets */; };
 		E438842D29E2B8EC00F1BB30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E438842C29E2B8EC00F1BB30 /* Preview Assets.xcassets */; };
-		E438843929E2BEB500F1BB30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E438843829E2BEB500F1BB30 /* GoogleService-Info.plist */; };
 		E438843F29E2ED7500F1BB30 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438843E29E2ED7500F1BB30 /* LoginView.swift */; };
 		E438844529E2F9B200F1BB30 /* InputDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438844429E2F9B200F1BB30 /* InputDetailsView.swift */; };
 		E438844C29E3120500F1BB30 /* InputPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438844B29E3120500F1BB30 /* InputPasswordView.swift */; };
@@ -29,11 +29,11 @@
 		E40321C129FE6AA100EE67B9 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		E40321C929FE7B2F00EE67B9 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		E40C3DFD29F542DD0002CE22 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
+		E41DAB482A3B38810034DB76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E438842229E2B8E600F1BB30 /* QuizApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E438842529E2B8E600F1BB30 /* QuizApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApplicationApp.swift; sourceTree = "<group>"; };
 		E438842929E2B8EC00F1BB30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E438842C29E2B8EC00F1BB30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E438843829E2BEB500F1BB30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E438843E29E2ED7500F1BB30 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E438844429E2F9B200F1BB30 /* InputDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailsView.swift; sourceTree = "<group>"; };
 		E438844B29E3120500F1BB30 /* InputPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordView.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		E438842429E2B8E600F1BB30 /* QuizApplication */ = {
 			isa = PBXGroup;
 			children = (
-				E438843829E2BEB500F1BB30 /* GoogleService-Info.plist */,
+				E41DAB482A3B38810034DB76 /* GoogleService-Info.plist */,
 				E438844229E2F27000F1BB30 /* Base */,
 				E438843A29E2ECE900F1BB30 /* Feature */,
 				E438842529E2B8E600F1BB30 /* QuizApplicationApp.swift */,
@@ -264,7 +264,7 @@
 			files = (
 				E438842D29E2B8EC00F1BB30 /* Preview Assets.xcassets in Resources */,
 				E438842A29E2B8EC00F1BB30 /* Assets.xcassets in Resources */,
-				E438843929E2BEB500F1BB30 /* GoogleService-Info.plist in Resources */,
+				E41DAB492A3B38810034DB76 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

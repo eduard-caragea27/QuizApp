@@ -17,23 +17,23 @@ struct InputDetailsView: View {
     private let textFieldLeading: CGFloat = 30
     
     var body: some View {
-            ZStack(alignment:  .leading) {
-                
-                TextField(placeholder, text: $text)
-                    .frame(maxWidth: .infinity, minHeight: 45)
-                    .padding(.leading, sfSymnol == nil ? textFieldLeading / 2 : textFieldLeading )
-                    .keyboardType(keyboardType)
-                
-                
-                if let systemImage = sfSymnol {
-                    Image(systemName: systemImage)
-                        .font(.system(size: 15, weight: .light))
-                        .padding(.leading, 5)
-                }
+        ZStack(alignment:  .leading) {
+            
+            TextField(placeholder, text: $text)
+                .frame(maxWidth: .infinity, minHeight: 45)
+                .padding(.leading, sfSymnol == nil ? textFieldLeading / 2 : textFieldLeading )
+                .keyboardType(keyboardType)
+            
+            
+            if let systemImage = sfSymnol {
+                Image(systemName: systemImage)
+                    .font(.system(size: 15, weight: .light))
+                    .padding(.leading, 5)
             }
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.gray.opacity(0.3)))
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(.gray.opacity(0.3)))
     }
 }
 
@@ -47,7 +47,7 @@ struct InputDetailsView_Previews: PreviewProvider {
             
             InputDetailsView(text: .constant(""), placeholder: "FirstName", keyboardType: .default, sfSymnol: "nil")
                 .previewLayout(.sizeThatFits)
-                .previewDisplayName("First Name  with sfSymbol")
+                .previewDisplayName("First Name without sfSymbol")
                 .padding()
         }
     }

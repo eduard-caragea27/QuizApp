@@ -18,7 +18,6 @@ struct ResetPasswordView: View {
                 ButtonComponentView(title: "Send", background: .blue, foreground: .white, border: .blue) {
                     
                 }
-                
             }
             .padding(.horizontal, 15)
             .navigationTitle("Reset Password")
