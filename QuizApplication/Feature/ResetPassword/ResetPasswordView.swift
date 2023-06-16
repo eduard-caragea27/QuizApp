@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ResetPasswordView: View {
     
-    
     var body: some View {
         NavigationView {
             VStack(spacing: 16) {
