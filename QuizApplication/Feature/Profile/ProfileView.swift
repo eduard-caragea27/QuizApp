@@ -16,8 +16,8 @@ struct ProfileView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("First Name: \(service.userDetails?.firstName ?? "N/A")")
                     Text("Last Name: \(service.userDetails?.lastName ?? "N/A")")
-                    Text("School: \(service.userDetails?.school ?? "N/A")")
-                    Text("Class: \(service.userDetails?.groups ?? "N/A")")
+                    Text("Educational Institution: \(service.userDetails?.educationUnit ?? "N/A")")
+                    Text("Class/Group: \(service.userDetails?.groups ?? "N/A")")
                     Text("Your score: <PlaceHolders>")
                 }
                 

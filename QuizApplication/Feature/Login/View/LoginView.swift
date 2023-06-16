@@ -11,17 +11,19 @@ struct LoginView: View {
     @State private  var showRegistration = false
     @State private var showForgotPassword = false
     
+    @StateObject private var vm = LoginViewModelImplementation(service: LoginServiceImplementation())
+    
     var body: some View {
         
         VStack(spacing: 150) {
             
             VStack(spacing: 16) {
-                InputDetailsView(text: .constant(""),
+                InputDetailsView(text: $vm.credentials.email,
                                  placeholder: "Email",
                                  keyboardType: .emailAddress,
                                  sfSymnol: "envelope")
                 
-                InputPasswordView(password: .constant(""),
+                InputPasswordView(password: $vm.credentials.password,
                                   placeholder: "Your password",
                                   sfSymbol: "lock")
                 
@@ -42,7 +44,9 @@ struct LoginView: View {
             }
             
             VStack(spacing: 22) {
-                ButtonComponentView(title: "Login", background: .blue, foreground: .white, border: .clear) { }
+                ButtonComponentView(title: "Login", background: .blue, foreground: .white, border: .clear) {
+                    vm.login()
+                }
                 
                 NavigationLink(destination: RegisterView(),
                                isActive: $showRegistration,

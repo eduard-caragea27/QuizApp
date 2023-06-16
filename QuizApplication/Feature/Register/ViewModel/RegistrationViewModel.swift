@@ -30,7 +30,7 @@ final class RegistrationViewModelImplementation: ObservableObject, RegistrationV
                                                 password: "",
                                                 firstName: "",
                                                 lastName: "",
-                                                school: "",
+                                                educationUnit: "",
                                                 groups: "")
     
     private var subscriptions = Set<AnyCancellable>()

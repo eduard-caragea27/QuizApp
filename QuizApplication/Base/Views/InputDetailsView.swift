@@ -20,6 +20,8 @@ struct InputDetailsView: View {
         ZStack(alignment:  .leading) {
             
             TextField(placeholder, text: $text)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
                 .frame(maxWidth: .infinity, minHeight: 45)
                 .padding(.leading, sfSymnol == nil ? textFieldLeading / 2 : textFieldLeading )
                 .keyboardType(keyboardType)

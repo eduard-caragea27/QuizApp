@@ -17,6 +17,8 @@ struct InputPasswordView: View {
     var body: some View {
         ZStack(alignment: .leading ) {
             SecureField(placeholder, text: $password)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
                 .frame(maxWidth: .infinity, minHeight: 45)
                 .padding(.leading, textFieldLeading )
             

@@ -21,10 +21,10 @@ struct RegisterView: View {
                 InputPasswordView(password: $vm.userDetails.password, placeholder: "Enter your password", sfSymbol: "lock")
                 
                 Divider()
-                InputDetailsView(text: $vm.userDetails.firstName, placeholder: "Enter your first name", keyboardType: .namePhonePad, sfSymnol: "nil")
+                InputDetailsView(text: $vm.userDetails.firstName, placeholder: "Enter your first name", keyboardType: .default, sfSymnol: "nil")
                 InputDetailsView(text: $vm.userDetails.lastName, placeholder: "Enter your last name", keyboardType: .namePhonePad, sfSymnol: "nil")
-                InputDetailsView(text: $vm.userDetails.school, placeholder: "Enter your school", keyboardType: .namePhonePad, sfSymnol: "nil")
-                InputDetailsView(text: $vm.userDetails.groups, placeholder: "Enter your group", keyboardType: .namePhonePad, sfSymnol: "nil")
+                InputDetailsView(text: $vm.userDetails.educationUnit, placeholder: "Enter your educational institution", keyboardType: .namePhonePad, sfSymnol: "nil")
+                InputDetailsView(text: $vm.userDetails.groups, placeholder: "Enter your class/group", keyboardType: .namePhonePad, sfSymnol: "nil")
             }
             ButtonComponentView(title: "Sign Up", background: .blue, foreground: .white, border: .blue) {
                 vm.create()

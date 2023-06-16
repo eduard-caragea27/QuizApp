@@ -12,7 +12,7 @@ import Firebase
 enum RegistrationKeys: String {
     case firstName
     case lastName
-    case school
+    case educationUnit
     case groups
 }
 
@@ -21,7 +21,7 @@ struct RegistrationDetails {
     var password: String
     var firstName: String
     var lastName: String
-    var school: String
+    var educationUnit: String
     var groups: String
 }
 
@@ -49,7 +49,7 @@ final class RegistrationServiceImplementation: RegistrationService {
                             
                             let values = [RegistrationKeys.firstName.rawValue: details.firstName,
                                           RegistrationKeys.lastName.rawValue: details.lastName,
-                                          RegistrationKeys.school.rawValue: details.school,
+                                          RegistrationKeys.educationUnit.rawValue: details.educationUnit,
                                           RegistrationKeys.groups.rawValue: details.groups] as [String : Any]
                             
                             Database

@@ -18,7 +18,7 @@ enum SessionState {
 struct UserSessionDetails {
     let firstName: String
     let lastName: String
-    let school: String
+    let educationUnit: String
     let groups: String
 }
 
@@ -75,7 +75,7 @@ private extension SessionServiceImplementation {
                 guard let value = snapshot.value as? NSDictionary,
                       let firstName = value[RegistrationKeys.firstName.rawValue] as? String,
                       let lastName = value[RegistrationKeys.lastName.rawValue] as? String,
-                      let school = value[RegistrationKeys.school.rawValue] as? String,
+                      let educationUnit = value[RegistrationKeys.educationUnit.rawValue] as? String,
                       let groups = value[RegistrationKeys.groups.rawValue] as? String else {
                     return
                 }
@@ -83,7 +83,7 @@ private extension SessionServiceImplementation {
                 DispatchQueue.main.async {
                     self.userDetails = UserSessionDetails(firstName: firstName,
                                                           lastName: lastName,
-                                                          school: school,
+                                                          educationUnit: educationUnit,
                                                           groups: groups)
                 }
             }
