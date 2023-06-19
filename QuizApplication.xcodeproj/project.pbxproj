@@ -10,6 +10,8 @@
 		E40321C229FE6AA100EE67B9 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40321C129FE6AA100EE67B9 /* RegistrationViewModel.swift */; };
 		E40321CA29FE7B2F00EE67B9 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40321C929FE7B2F00EE67B9 /* SessionService.swift */; };
 		E40C3DFE29F542DD0002CE22 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C3DFD29F542DD0002CE22 /* RegistrationService.swift */; };
+		E4114BF62A4079ED00C6C91C /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4114BF52A4079ED00C6C91C /* ResetPasswordService.swift */; };
+		E4114BF92A407B8900C6C91C /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4114BF82A407B8900C6C91C /* ResetPasswordViewModel.swift */; };
 		E41DAB492A3B38810034DB76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41DAB482A3B38810034DB76 /* GoogleService-Info.plist */; };
 		E438842629E2B8E600F1BB30 /* QuizApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438842529E2B8E600F1BB30 /* QuizApplicationApp.swift */; };
 		E438842A29E2B8EC00F1BB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E438842929E2B8EC00F1BB30 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		E40321C129FE6AA100EE67B9 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		E40321C929FE7B2F00EE67B9 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		E40C3DFD29F542DD0002CE22 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
+		E4114BF52A4079ED00C6C91C /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
+		E4114BF82A407B8900C6C91C /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		E41DAB482A3B38810034DB76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E438842229E2B8E600F1BB30 /* QuizApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E438842529E2B8E600F1BB30 /* QuizApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApplicationApp.swift; sourceTree = "<group>"; };
@@ -98,6 +102,30 @@
 				E40C3DFD29F542DD0002CE22 /* RegistrationService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E4114BF32A4079B100C6C91C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E4114BF52A4079ED00C6C91C /* ResetPasswordService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E4114BF42A4079BE00C6C91C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E466416A29F46DC4001230C6 /* ResetPasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4114BF72A407B7400C6C91C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4114BF82A407B8900C6C91C /* ResetPasswordViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E438841929E2B8E600F1BB30 = {
@@ -198,7 +226,9 @@
 		E466416929F46DA8001230C6 /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
-				E466416A29F46DC4001230C6 /* ResetPasswordView.swift */,
+				E4114BF72A407B7400C6C91C /* ViewModel */,
+				E4114BF32A4079B100C6C91C /* Service */,
+				E4114BF42A4079BE00C6C91C /* View */,
 			);
 			path = ResetPassword;
 			sourceTree = "<group>";
@@ -310,7 +340,9 @@
 				E40321C229FE6AA100EE67B9 /* RegistrationViewModel.swift in Sources */,
 				E438844C29E3120500F1BB30 /* InputPasswordView.swift in Sources */,
 				E438843F29E2ED7500F1BB30 /* LoginView.swift in Sources */,
+				E4114BF92A407B8900C6C91C /* ResetPasswordViewModel.swift in Sources */,
 				E466416B29F46DC4001230C6 /* ResetPasswordView.swift in Sources */,
+				E4114BF62A4079ED00C6C91C /* ResetPasswordService.swift in Sources */,
 				E466414B29F44E7B001230C6 /* RegisterView.swift in Sources */,
 				E4DC89642A3C61A800725CD5 /* LoginService.swift in Sources */,
 				E4DC89662A3C647E00725CD5 /* LoginViewModel.swift in Sources */,

@@ -19,12 +19,14 @@ protocol RegistrationViewModel {
     var service: RegistrationService { get }
     var state: RegistrationState { get }
     var userDetails: RegistrationDetails { get }
+    var isError: Bool { get }
     init(service: RegistrationService)
 }
 
 final class RegistrationViewModelImplementation: ObservableObject, RegistrationViewModel {
     
     let service: RegistrationService
+    @Published var isError: Bool = false
     @Published var state: RegistrationState = .na
     @Published var userDetails = RegistrationDetails(email: "",
                                                 password: "",
@@ -38,6 +40,7 @@ final class RegistrationViewModelImplementation: ObservableObject, RegistrationV
     
     init(service: RegistrationService) {
         self.service = service
+        setupError()
     }
     
     func create() {
@@ -56,6 +59,23 @@ final class RegistrationViewModelImplementation: ObservableObject, RegistrationV
                 self?.state = .successfull
             }
             .store(in: &subscriptions)
+    }
+}
+
+private extension RegistrationViewModelImplementation {
+    
+    func setupError() {
+        $state.map { state -> Bool in
+            switch state {
+            case .successfull,
+                    .na:
+                return false
+            case.failed:
+                return true
+                
+            }
+        }
+        .assign(to: &$isError)
     }
 }
 

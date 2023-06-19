@@ -10,6 +10,9 @@ import SwiftUI
 struct LoginView: View {
     @State private  var showRegistration = false
     @State private var showForgotPassword = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @State private var errorMessage = ""
     
     @StateObject private var vm = LoginViewModelImplementation(service: LoginServiceImplementation())
     
@@ -45,7 +48,30 @@ struct LoginView: View {
             
             VStack(spacing: 22) {
                 ButtonComponentView(title: "Login", background: .blue, foreground: .white, border: .clear) {
-                    vm.login()
+                    if !vm.credentials.email.isEmpty && !vm.credentials.password.isEmpty {
+                        if isValidEmail(vm.credentials.email) && isValidPassword(vm.credentials.password) {
+                            vm.login()
+                        } else {
+                            if !isValidEmail(vm.credentials.email) {
+                                vm.isError = true
+                                errorMessage = "Your email is invalid"
+                            } else if !isValidPassword(vm.credentials.password) {
+                                vm.isError = true
+                                errorMessage = "Your password is invalid"
+                            }
+                        }
+                    } else {
+                        if vm.credentials.email.isEmpty && vm.credentials.password.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your email and password"
+                        } else if vm.credentials.email.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your email"
+                        } else if vm.credentials.password.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your password"
+                        }
+                    }
                 }
                 
                 NavigationLink(destination: RegisterView(),
@@ -59,6 +85,28 @@ struct LoginView: View {
         }
         .padding(.horizontal, 15)
         .navigationTitle("Login")
+        .alert(isPresented: $vm.isError,
+               content: {
+            if case .failed(let error) = vm.state {
+                return Alert(title: Text("Error"),
+                             message: Text(error.localizedDescription))
+            } else {
+                return Alert(title: Text("Error"),
+                             message: Text(errorMessage))
+            }
+        })
+    }
+    
+     private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+    
+     private func isValidPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
     }
 }
 

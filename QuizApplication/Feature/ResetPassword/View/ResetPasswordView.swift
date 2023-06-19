@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ResetPasswordView: View {
+    @StateObject private var vm = ResetPasswordViewModelImplementation(service: ResetPasswordServiceImplementation())
     
     var body: some View {
         NavigationView {
             VStack(spacing: 16) {
-                InputDetailsView(text: .constant(""), placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
+                
+                InputDetailsView(text: $vm.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
                 
                 ButtonComponentView(title: "Send", background: .blue, foreground: .white, border: .blue) {
-                    
+                    vm.sendPassReset()
                 }
             }
             .padding(.horizontal, 15)

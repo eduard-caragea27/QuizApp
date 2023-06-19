@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RegisterView: View {
     
+    @State private var errorMessage = ""
+    
     @StateObject private var vm = RegistrationViewModelImplementation(
         service: RegistrationServiceImplementation()
     )
@@ -26,15 +28,75 @@ struct RegisterView: View {
                 InputDetailsView(text: $vm.userDetails.educationUnit, placeholder: "Enter your educational institution", keyboardType: .namePhonePad, sfSymnol: "nil")
                 InputDetailsView(text: $vm.userDetails.groups, placeholder: "Enter your class/group", keyboardType: .namePhonePad, sfSymnol: "nil")
             }
+            
             ButtonComponentView(title: "Sign Up", background: .blue, foreground: .white, border: .blue) {
-                vm.create()
+                if !vm.userDetails.email.isEmpty && !vm.userDetails.password.isEmpty && !vm.userDetails.firstName.isEmpty && !vm.userDetails.lastName.isEmpty && !vm.userDetails.educationUnit.isEmpty && !vm.userDetails.groups.isEmpty {
+                    if isValidEmail(vm.userDetails.email) && isValidPassword(vm.userDetails.password) {
+                        vm.create()
+                    } else {
+                        if !isValidEmail(vm.userDetails.email) {
+                            vm.isError = true
+                            errorMessage = "Your email is invalid"
+                        } else if !isValidPassword(vm.userDetails.password) {
+                            vm.isError = true
+                            errorMessage = "Your password is invalid"
+                        }
+                    }
+                } else {
+                    if vm.userDetails.email.isEmpty && vm.userDetails.password.isEmpty && vm.userDetails.firstName.isEmpty && vm.userDetails.lastName.isEmpty && vm.userDetails.educationUnit.isEmpty && vm.userDetails.groups.isEmpty {
+                        vm.isError = true
+                        errorMessage = "Complete all the fields!"
+                    }   else if vm.userDetails.email.isEmpty {
+                        vm.isError = true
+                        errorMessage = "Please enter your email"
+                    } else if vm.userDetails.password.isEmpty {
+                        vm.isError = true
+                        errorMessage = "Please enter your password"
+                    } else if vm.userDetails.firstName.isEmpty {
+                        vm.isError = true
+                        errorMessage = "Please enter your firstname"
+                    } else if vm.userDetails.lastName.isEmpty {
+                        vm.isError = true
+                        errorMessage = "Please enter your lastname"
+                    } else if vm.userDetails.educationUnit.isEmpty {
+                        vm.isError = true
+                        errorMessage = "Please enter your educational institution"
+                    } else if vm.userDetails.groups.isEmpty {
+                        vm.isError = true
+                        errorMessage = "Please enter your class/group"
+                    }
+                }
             }
+            .padding(.horizontal, 15)
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Register")
+            .alert(isPresented: $vm.isError,
+                   content: {
+                if case .failed(let error) = vm.state {
+                    return Alert(title: Text("Error"),
+                                 message: Text(error.localizedDescription))
+                } else {
+                    return Alert(title: Text("Error"),
+                                 message: Text(errorMessage))
+                }
+            })
         }
-        .padding(.horizontal, 15)
-        .navigationBarTitleDisplayMode(.large)
-        .navigationTitle("Register")
+    }
+    
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
     }
 }
+
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
