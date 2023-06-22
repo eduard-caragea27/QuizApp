@@ -16,8 +16,6 @@ struct InputDetailsView: View {
     
     private let textFieldLeading: CGFloat = 30
     
-    
-    
     var body: some View {
         ZStack(alignment:  .leading) {
             

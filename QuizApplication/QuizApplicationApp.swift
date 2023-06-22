@@ -27,8 +27,19 @@ struct QuizApplicationApp: App {
             NavigationView {
                 switch sessionService.state {
                 case .loggedIn:
-                    ProfileView()
-                        .environmentObject(sessionService)
+                    TabView {
+                        ProfileView()
+                            .tabItem {
+                                Label("Profile", systemImage: "person")
+                            }
+                            .environmentObject(sessionService)
+                        
+                        QuizView()
+                            .tabItem {
+                                Label("Quiz", systemImage: "questionmark.circle")
+                            }
+                            
+                    }
                 case .loggedOut:
                     LoginView()
                 }

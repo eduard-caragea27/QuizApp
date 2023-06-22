@@ -10,8 +10,6 @@ import SwiftUI
 struct LoginView: View {
     @State private  var showRegistration = false
     @State private var showForgotPassword = false
-    @State private var showAlert = false
-    @State private var alertMessage = ""
     @State private var errorMessage = ""
     
     @StateObject private var vm = LoginViewModelImplementation(service: LoginServiceImplementation())

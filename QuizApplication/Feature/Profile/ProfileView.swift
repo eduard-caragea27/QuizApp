@@ -11,6 +11,7 @@ struct ProfileView: View {
     @EnvironmentObject var service: SessionServiceImplementation
     
     var body: some View {
+        NavigationView {
             VStack(alignment: .leading, spacing: 50) {
                 
                 VStack(alignment: .leading, spacing: 16) {
@@ -25,18 +26,17 @@ struct ProfileView: View {
                     service.logout()
                 }
             }
+            
             .padding(.horizontal, 15)
             .navigationTitle("Profile")
-            
         }
     }
-
+}
+ 
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ProfileView()
-                .environmentObject(SessionServiceImplementation())
-        }
+        ProfileView()
+            .environmentObject(SessionServiceImplementation())
     }
 }

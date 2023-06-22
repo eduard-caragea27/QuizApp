@@ -23,6 +23,7 @@
 		E466414B29F44E7B001230C6 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E466414A29F44E7B001230C6 /* RegisterView.swift */; };
 		E466416829F46B26001230C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E466416729F46B26001230C6 /* ProfileView.swift */; };
 		E466416B29F46DC4001230C6 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E466416A29F46DC4001230C6 /* ResetPasswordView.swift */; };
+		E47D98FF2A4462880090D259 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47D98FE2A4462880090D259 /* QuizView.swift */; };
 		E4DC89642A3C61A800725CD5 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DC89632A3C61A800725CD5 /* LoginService.swift */; };
 		E4DC89662A3C647E00725CD5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DC89652A3C647E00725CD5 /* LoginViewModel.swift */; };
 		E4FD10F72A06BDE100276D71 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E4FD10F62A06BDE100276D71 /* FirebaseAuth */; };
@@ -47,6 +48,7 @@
 		E466414A29F44E7B001230C6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E466416729F46B26001230C6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E466416A29F46DC4001230C6 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		E47D98FE2A4462880090D259 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		E4DC89632A3C61A800725CD5 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		E4DC89652A3C647E00725CD5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +170,7 @@
 		E438843A29E2ECE900F1BB30 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				E47D98FD2A4462690090D259 /* Quiz */,
 				E40321C429FE7A6900EE67B9 /* Session */,
 				E438843D29E2ED6100F1BB30 /* Login */,
 				E466414929F44E4B001230C6 /* Register */,
@@ -231,6 +234,14 @@
 				E4114BF42A4079BE00C6C91C /* View */,
 			);
 			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		E47D98FD2A4462690090D259 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				E47D98FE2A4462880090D259 /* QuizView.swift */,
+			);
+			path = Quiz;
 			sourceTree = "<group>";
 		};
 		E4DC895D2A3C60F700725CD5 /* View */ = {
@@ -349,6 +360,7 @@
 				E438844529E2F9B200F1BB30 /* InputDetailsView.swift in Sources */,
 				E438844E29E3336600F1BB30 /* ButtonComponentView.swift in Sources */,
 				E438842629E2B8E600F1BB30 /* QuizApplicationApp.swift in Sources */,
+				E47D98FF2A4462880090D259 /* QuizView.swift in Sources */,
 				E40C3DFE29F542DD0002CE22 /* RegistrationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

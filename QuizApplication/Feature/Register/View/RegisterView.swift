@@ -15,55 +15,57 @@ struct RegisterView: View {
         service: RegistrationServiceImplementation()
     )
     var body: some View {
+        NavigationView {
         
-        VStack(spacing: 30) {
-            
-            VStack(spacing: 16) {
-                InputDetailsView(text: $vm.userDetails.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
-                InputPasswordView(password: $vm.userDetails.password, placeholder: "Enter your password", sfSymbol: "lock")
+            VStack(spacing: 30) {
                 
-                Divider()
-                InputDetailsView(text: $vm.userDetails.firstName, placeholder: "Enter your first name", keyboardType: .default, sfSymnol: "nil")
-                InputDetailsView(text: $vm.userDetails.lastName, placeholder: "Enter your last name", keyboardType: .namePhonePad, sfSymnol: "nil")
-                InputDetailsView(text: $vm.userDetails.educationUnit, placeholder: "Enter your educational institution", keyboardType: .namePhonePad, sfSymnol: "nil")
-                InputDetailsView(text: $vm.userDetails.groups, placeholder: "Enter your class/group", keyboardType: .namePhonePad, sfSymnol: "nil")
-            }
-            
-            ButtonComponentView(title: "Sign Up", background: .blue, foreground: .white, border: .blue) {
-                if !vm.userDetails.email.isEmpty && !vm.userDetails.password.isEmpty && !vm.userDetails.firstName.isEmpty && !vm.userDetails.lastName.isEmpty && !vm.userDetails.educationUnit.isEmpty && !vm.userDetails.groups.isEmpty {
-                    if isValidEmail(vm.userDetails.email) && isValidPassword(vm.userDetails.password) {
-                        vm.create()
-                    } else {
-                        if !isValidEmail(vm.userDetails.email) {
-                            vm.isError = true
-                            errorMessage = "Your email is invalid"
-                        } else if !isValidPassword(vm.userDetails.password) {
-                            vm.isError = true
-                            errorMessage = "Your password is invalid"
+                VStack(spacing: 16) {
+                    InputDetailsView(text: $vm.userDetails.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
+                    InputPasswordView(password: $vm.userDetails.password, placeholder: "Enter your password", sfSymbol: "lock")
+                    
+                    Divider()
+                    InputDetailsView(text: $vm.userDetails.firstName, placeholder: "Enter your first name", keyboardType: .default, sfSymnol: "nil")
+                    InputDetailsView(text: $vm.userDetails.lastName, placeholder: "Enter your last name", keyboardType: .namePhonePad, sfSymnol: "nil")
+                    InputDetailsView(text: $vm.userDetails.educationUnit, placeholder: "Enter your educational institution", keyboardType: .namePhonePad, sfSymnol: "nil")
+                    InputDetailsView(text: $vm.userDetails.groups, placeholder: "Enter your class/group", keyboardType: .namePhonePad, sfSymnol: "nil")
+                }
+                
+                ButtonComponentView(title: "Sign Up", background: .blue, foreground: .white, border: .blue) {
+                    if !vm.userDetails.email.isEmpty && !vm.userDetails.password.isEmpty && !vm.userDetails.firstName.isEmpty && !vm.userDetails.lastName.isEmpty && !vm.userDetails.educationUnit.isEmpty && !vm.userDetails.groups.isEmpty {
+                        if isValidEmail(vm.userDetails.email) && isValidPassword(vm.userDetails.password) {
+                            vm.create()
+                        } else {
+                            if !isValidEmail(vm.userDetails.email) {
+                                vm.isError = true
+                                errorMessage = "Your email is invalid"
+                            } else if !isValidPassword(vm.userDetails.password) {
+                                vm.isError = true
+                                errorMessage = "Your password is invalid"
+                            }
                         }
-                    }
-                } else {
-                    if vm.userDetails.email.isEmpty && vm.userDetails.password.isEmpty && vm.userDetails.firstName.isEmpty && vm.userDetails.lastName.isEmpty && vm.userDetails.educationUnit.isEmpty && vm.userDetails.groups.isEmpty {
-                        vm.isError = true
-                        errorMessage = "Complete all the fields!"
-                    }   else if vm.userDetails.email.isEmpty {
-                        vm.isError = true
-                        errorMessage = "Please enter your email"
-                    } else if vm.userDetails.password.isEmpty {
-                        vm.isError = true
-                        errorMessage = "Please enter your password"
-                    } else if vm.userDetails.firstName.isEmpty {
-                        vm.isError = true
-                        errorMessage = "Please enter your firstname"
-                    } else if vm.userDetails.lastName.isEmpty {
-                        vm.isError = true
-                        errorMessage = "Please enter your lastname"
-                    } else if vm.userDetails.educationUnit.isEmpty {
-                        vm.isError = true
-                        errorMessage = "Please enter your educational institution"
-                    } else if vm.userDetails.groups.isEmpty {
-                        vm.isError = true
-                        errorMessage = "Please enter your class/group"
+                    } else {
+                        if vm.userDetails.email.isEmpty && vm.userDetails.password.isEmpty && vm.userDetails.firstName.isEmpty && vm.userDetails.lastName.isEmpty && vm.userDetails.educationUnit.isEmpty && vm.userDetails.groups.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Complete all the fields!"
+                        }   else if vm.userDetails.email.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your email"
+                        } else if vm.userDetails.password.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your password"
+                        } else if vm.userDetails.firstName.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your firstname"
+                        } else if vm.userDetails.lastName.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your lastname"
+                        } else if vm.userDetails.educationUnit.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your educational institution"
+                        } else if vm.userDetails.groups.isEmpty {
+                            vm.isError = true
+                            errorMessage = "Please enter your class/group"
+                        }
                     }
                 }
             }
@@ -100,10 +102,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
             RegisterView()
-                .navigationBarTitleDisplayMode(.large)
-                .navigationTitle("Register")
-        }
     }
 }
