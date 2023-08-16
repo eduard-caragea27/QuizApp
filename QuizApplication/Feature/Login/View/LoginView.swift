@@ -46,30 +46,7 @@ struct LoginView: View {
             
             VStack(spacing: 22) {
                 ButtonComponentView(title: "Login", background: .blue, foreground: .white, border: .clear) {
-                    if !vm.credentials.email.isEmpty && !vm.credentials.password.isEmpty {
-                        if isValidEmail(vm.credentials.email) && isValidPassword(vm.credentials.password) {
-                            vm.login()
-                        } else {
-                            if !isValidEmail(vm.credentials.email) {
-                                vm.isError = true
-                                errorMessage = "Your email is invalid"
-                            } else if !isValidPassword(vm.credentials.password) {
-                                vm.isError = true
-                                errorMessage = "Your password is invalid"
-                            }
-                        }
-                    } else {
-                        if vm.credentials.email.isEmpty && vm.credentials.password.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your email and password"
-                        } else if vm.credentials.email.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your email"
-                        } else if vm.credentials.password.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your password"
-                        }
-                    }
+                    validateInputs()
                 }
                 
                 NavigationLink(destination: RegisterView(),
@@ -95,16 +72,39 @@ struct LoginView: View {
         })
     }
     
-     private func isValidEmail(_ email: String) -> Bool {
+    private func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
     }
     
-     private func isValidPassword(_ password: String) -> Bool {
+    private func isValidPassword(_ password: String) -> Bool {
         let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordPredicate.evaluate(with: password)
+    }
+    
+    private func validateInputs() {
+        if vm.credentials.email.isEmpty || vm.credentials.password.isEmpty {
+            vm.isError = true
+            errorMessage = "Please enter your email and password"
+            return
+        }
+        
+        let validations: [(Bool, String)] = [
+            (isValidEmail(vm.credentials.email), "Your email is invalid"),
+            (isValidPassword(vm.credentials.password), "Your password is invalid")
+        ]
+        
+        for (isValid, message) in validations {
+            if !isValid {
+                vm.isError = true
+                errorMessage = message
+                return
+            }
+        }
+        
+        vm.login()
     }
 }
 

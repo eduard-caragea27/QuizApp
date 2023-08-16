@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E41DAB482A3B38810034DB76 /* GoogleService-Info.plist */,
-				E438844229E2F27000F1BB30 /* Base */,
+				E438844329E2F98B00F1BB30 /* Components */,
 				E438843A29E2ECE900F1BB30 /* Feature */,
 				E438842529E2B8E600F1BB30 /* QuizApplicationApp.swift */,
 				E438842929E2B8EC00F1BB30 /* Assets.xcassets */,
@@ -190,22 +190,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		E438844229E2F27000F1BB30 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				E438844329E2F98B00F1BB30 /* Views */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		E438844329E2F98B00F1BB30 /* Views */ = {
+		E438844329E2F98B00F1BB30 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				E438844429E2F9B200F1BB30 /* InputDetailsView.swift */,
 				E438844B29E3120500F1BB30 /* InputPasswordView.swift */,
 				E438844D29E3336600F1BB30 /* ButtonComponentView.swift */,
 			);
-			path = Views;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E466414929F44E4B001230C6 /* Register */ = {

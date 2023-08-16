@@ -12,8 +12,8 @@ struct RegisterView: View {
     @State private var errorMessage = ""
     
     @StateObject private var vm = RegistrationViewModelImplementation(
-        service: RegistrationServiceImplementation()
-    )
+        service: RegistrationServiceImplementation())
+    
     var body: some View {
         NavigationView {
         
@@ -31,42 +31,7 @@ struct RegisterView: View {
                 }
                 
                 ButtonComponentView(title: "Sign Up", background: .blue, foreground: .white, border: .blue) {
-                    if !vm.userDetails.email.isEmpty && !vm.userDetails.password.isEmpty && !vm.userDetails.firstName.isEmpty && !vm.userDetails.lastName.isEmpty && !vm.userDetails.educationUnit.isEmpty && !vm.userDetails.groups.isEmpty {
-                        if isValidEmail(vm.userDetails.email) && isValidPassword(vm.userDetails.password) {
-                            vm.create()
-                        } else {
-                            if !isValidEmail(vm.userDetails.email) {
-                                vm.isError = true
-                                errorMessage = "Your email is invalid"
-                            } else if !isValidPassword(vm.userDetails.password) {
-                                vm.isError = true
-                                errorMessage = "Your password is invalid"
-                            }
-                        }
-                    } else {
-                        if vm.userDetails.email.isEmpty && vm.userDetails.password.isEmpty && vm.userDetails.firstName.isEmpty && vm.userDetails.lastName.isEmpty && vm.userDetails.educationUnit.isEmpty && vm.userDetails.groups.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Complete all the fields!"
-                        }   else if vm.userDetails.email.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your email"
-                        } else if vm.userDetails.password.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your password"
-                        } else if vm.userDetails.firstName.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your firstname"
-                        } else if vm.userDetails.lastName.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your lastname"
-                        } else if vm.userDetails.educationUnit.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your educational institution"
-                        } else if vm.userDetails.groups.isEmpty {
-                            vm.isError = true
-                            errorMessage = "Please enter your class/group"
-                        }
-                    }
+                    validateInputs()
                 }
             }
             .padding(.horizontal, 15)
@@ -86,22 +51,44 @@ struct RegisterView: View {
     }
     
     
-    func isValidEmail(_ email: String) -> Bool {
+    private func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
     }
     
-    func isValidPassword(_ password: String) -> Bool {
+    private func isValidPassword(_ password: String) -> Bool {
         let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordPredicate.evaluate(with: password)
+    }
+    
+    private func validateInputs() {
+        if vm.userDetails.email.isEmpty || vm.userDetails.password.isEmpty || vm.userDetails.firstName.isEmpty || vm.userDetails.lastName.isEmpty || vm.userDetails.educationUnit.isEmpty || vm.userDetails.groups.isEmpty {
+            vm.isError = true
+            errorMessage = "Complete all the fields!"
+            return
+        }
+        
+        let validations: [(Bool, String)] = [
+            (isValidEmail(vm.userDetails.email), "Your email is invalid"),
+            (isValidPassword(vm.userDetails.password), "Your password is invalid")
+        ]
+        
+        for (isValid, message) in validations {
+            if !isValid {
+                vm.isError = true
+                errorMessage = message
+                return
+            }
+        }
+        vm.create()
     }
 }
 
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-            RegisterView()
+        RegisterView()
     }
 }
