@@ -9,6 +9,6 @@ import Foundation
 
 struct Answers: Identifiable {
     var id = UUID()
-    var quizText: AttributedString
-    var answer: Bool
+    var text: AttributedString
+    var isCorrect: Bool
 }

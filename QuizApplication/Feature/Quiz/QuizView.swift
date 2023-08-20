@@ -11,7 +11,7 @@ struct QuizView: View {
     @EnvironmentObject var quizManager: QuizManager
     
     var body: some View {
-        if quizManager.end {
+        if quizManager.end == true {
             VStack(spacing: 20) {
                 Text("Quiz Game")
                     .foregroundColor(Color.darkPurple)

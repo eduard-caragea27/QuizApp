@@ -69,14 +69,14 @@ class QuizManager: ObservableObject {
         
         if index < length {
             let currentQuestion = quiz[index]
-            question = currentQuestion.formattedString
+            question = currentQuestion.formattedQuestion
             answerChoices = currentQuestion.answers
         }
     }
     
     func chooseAnswer(answer: Answers) {
         answerSelected = true
-        if answer.answer {
+        if answer.isCorrect {
             score += 1 
             
         }

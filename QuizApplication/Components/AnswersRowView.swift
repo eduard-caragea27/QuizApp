@@ -17,13 +17,13 @@ struct AnswersRowView: View {
             Image(systemName: "circle.dashed")
                 .font(.body)
             
-            Text(answers.quizText)
+            Text(answers.text)
                 .bold()
             
             if selected == true {
                 Spacer()
-                Image(systemName: answers.answer ? "checkmark.circle.fill" : "x.circle.fill")
-                    .foregroundColor(answers.answer ? .green : .red)
+                Image(systemName: answers.isCorrect ? "checkmark.circle.fill" : "x.circle.fill")
+                    .foregroundColor(answers.isCorrect ? .green : .red)
             }
         }
         .padding()
@@ -31,7 +31,7 @@ struct AnswersRowView: View {
         .background(.white)
         .foregroundColor(quizManager.answerSelected ? (selected ? Color.darkPurple : .gray) : Color.darkPurple)
         .cornerRadius(10)
-        .shadow(color: selected ? (answers.answer ? .green : .red) : .gray, radius: 5, x: 0.5, y: 0.5)
+        .shadow(color: selected ? (answers.isCorrect ? .green : .red) : .gray, radius: 5, x: 0.5, y: 0.5)
         .onTapGesture {
             if !quizManager.answerSelected {
                 selected = true
@@ -43,7 +43,7 @@ struct AnswersRowView: View {
 
 struct AnswersRowView_Previews: PreviewProvider {
     static var previews: some View {
-        AnswersRowView(answers: Answers(quizText: "First", answer: false))
+        AnswersRowView(answers: Answers(text: "First", isCorrect: false))
             .environmentObject(QuizManager())
     }
 }
