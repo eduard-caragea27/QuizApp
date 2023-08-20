@@ -42,6 +42,5 @@ final class LoginServiceImplementation: LoginService {
         }
         .receive(on: RunLoop.main)
         .eraseToAnyPublisher()
-        
     }
 }

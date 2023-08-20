@@ -15,7 +15,6 @@ struct RegisterView: View {
         service: RegistrationServiceImplementation())
     
     var body: some View {
-        NavigationView {
         
             VStack(spacing: 30) {
                 
@@ -47,7 +46,6 @@ struct RegisterView: View {
                                  message: Text(errorMessage))
                 }
             })
-        }
     }
     
     

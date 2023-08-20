@@ -34,7 +34,7 @@ struct QuizApplicationApp: App {
                             }
                             .environmentObject(sessionService)
                         
-                        QuizView()
+                        PrimaryQuizView()
                             .tabItem {
                                 Label("Quiz", systemImage: "questionmark.circle")
                             }
