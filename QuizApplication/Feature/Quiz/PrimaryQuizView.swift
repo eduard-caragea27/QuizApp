@@ -23,7 +23,7 @@ struct PrimaryQuizView: View {
                 }
                 
                 NavigationLink {
-                    QuestionView()
+                    QuizView()
                         .environmentObject(quizManager)
                 } label: {
                     QuizButtonView(text: "Go")

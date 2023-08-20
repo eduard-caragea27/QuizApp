@@ -11,28 +11,31 @@ struct QuizView: View {
     @EnvironmentObject var quizManager: QuizManager
     
     var body: some View {
-        if quizManager.end == true {
-            VStack(spacing: 20) {
-                Text("Quiz Game")
-                    .foregroundColor(Color.darkPurple)
-                    .font(.system(size: 30, weight: .bold))
-                Text("Congratulations, you completed the game!")
-                    .foregroundColor(Color.darkPurple)
-                    .font(.system(size: 15, weight: .bold))
-                
-                Text("Your score is: \(quizManager.score) out of \(quizManager.length)")
-                
-                Button {
-                    Task.init {
-                        await quizManager.fetchData()
+        NavigationView {
+        if quizManager.reachedEnd {
+                VStack(spacing: 20) {
+                    Text("Quiz Game")
+                        .foregroundColor(Color.darkPurple)
+                        .font(.system(size: 30, weight: .bold))
+                    Text("Congratulations, you completed the game!")
+                        .foregroundColor(Color.darkPurple)
+                        .font(.system(size: 15, weight: .bold))
+                    
+                    Text("Your score is: \(quizManager.score) out of \(quizManager.length)")
+                    
+                    NavigationLink(destination: ProfileView()) {
+                        QuizButtonView(text: "Go to Profile")
                     }
-                } label: {
-                    QuizButtonView(text: "Go to Profile")
                 }
+                .foregroundColor(Color.darkPurple)
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.dustyGray)
+                .navigationBarHidden(true)
+            } else {
+                QuestionView()
+                    .environmentObject(quizManager)
             }
-        } else {
-            QuestionView()
-                .environmentObject(quizManager)
         }
     }
 }

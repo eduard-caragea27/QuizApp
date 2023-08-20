@@ -12,7 +12,7 @@ class QuizManager: ObservableObject {
     private(set) var quiz: [QuizModel.Result] = []
     @Published private(set) var length = 0
     @Published private(set) var index = 0
-    @Published private(set) var end = false
+    @Published private(set) var reachedEnd = false
     @Published private(set) var answerSelected = false
     @Published private(set) var question: AttributedString = ""
     @Published private(set) var answerChoices: [Answers] = []
@@ -43,7 +43,7 @@ class QuizManager: ObservableObject {
                 self.index = 0
                 self.score = 0
                 self.progress = 0.00
-                self.end = false
+                self.reachedEnd = false
                 
                 self.quiz = decodedData.results
                 self.length = self.quiz.count
@@ -59,7 +59,7 @@ class QuizManager: ObservableObject {
             index += 1
             setQuestion()
         } else {
-            end = true
+            reachedEnd = true
         }
     }
     
