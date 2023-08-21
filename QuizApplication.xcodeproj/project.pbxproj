@@ -10,6 +10,7 @@
 		E40321C229FE6AA100EE67B9 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40321C129FE6AA100EE67B9 /* RegistrationViewModel.swift */; };
 		E40321CA29FE7B2F00EE67B9 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40321C929FE7B2F00EE67B9 /* SessionService.swift */; };
 		E407C5AF2A93324300A303B7 /* StartQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407C5AE2A93324300A303B7 /* StartQuizView.swift */; };
+		E407C5B12A93437500A303B7 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407C5B02A93437500A303B7 /* Fonts.swift */; };
 		E40C3DFE29F542DD0002CE22 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C3DFD29F542DD0002CE22 /* RegistrationService.swift */; };
 		E4114BF62A4079ED00C6C91C /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4114BF52A4079ED00C6C91C /* ResetPasswordService.swift */; };
 		E4114BF92A407B8900C6C91C /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4114BF82A407B8900C6C91C /* ResetPasswordViewModel.swift */; };
@@ -43,6 +44,7 @@
 		E40321C129FE6AA100EE67B9 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		E40321C929FE7B2F00EE67B9 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		E407C5AE2A93324300A303B7 /* StartQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizView.swift; sourceTree = "<group>"; };
+		E407C5B02A93437500A303B7 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		E40C3DFD29F542DD0002CE22 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		E4114BF52A4079ED00C6C91C /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
 		E4114BF82A407B8900C6C91C /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				E424E52E2A922AB3003766CA /* ProgressComponentView.swift */,
 				E424E5342A922F70003766CA /* AnswersRowView.swift */,
 				E424E5362A923F99003766CA /* QuizButtonView.swift */,
+				E407C5B02A93437500A303B7 /* Fonts.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			files = (
 				E466416829F46B26001230C6 /* ProfileView.swift in Sources */,
 				E40321CA29FE7B2F00EE67B9 /* SessionService.swift in Sources */,
+				E407C5B12A93437500A303B7 /* Fonts.swift in Sources */,
 				E424E5482A926431003766CA /* QuizView.swift in Sources */,
 				E40321C229FE6AA100EE67B9 /* RegistrationViewModel.swift in Sources */,
 				E424E5332A922ED2003766CA /* Answers.swift in Sources */,

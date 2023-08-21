@@ -11,18 +11,18 @@ struct ResetPasswordView: View {
     @StateObject private var vm = ResetPasswordViewModelImplementation(service: ResetPasswordServiceImplementation())
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 16) {
-                
+            VStack(spacing: 20) {
                 InputDetailsView(text: $vm.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
                 
-                ButtonComponentView(title: "Send", background: .blue, foreground: .white, border: .blue) {
+                ButtonComponentView(title: "Send", background: Color.darkPurple, foreground: .white, border: .clear) {
                     vm.sendPassReset()
                 }
             }
             .padding(.horizontal, 15)
             .navigationTitle("Reset Password")
-        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.all)
+            .background(Color.dustyGray)
     }
 }
 

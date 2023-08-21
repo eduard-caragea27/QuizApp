@@ -15,11 +15,9 @@ struct StartQuizView: View {
             VStack(spacing: 30) {
                 VStack(spacing: 15) {
                     Text("Start the Quiz")
-                        .foregroundColor(Color.darkPurple)
-                        .font(.system(size: 30, weight: .bold))
+                        .customTitle()
                     Text("Press the button to begin!")
-                        .foregroundColor(Color.darkPurple)
-                        .font(.system(size: 15, weight: .light))
+                        .customText()
                 }
                 
                 NavigationLink {

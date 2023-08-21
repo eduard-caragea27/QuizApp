@@ -12,18 +12,23 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 50) {
+            VStack(alignment: .leading, spacing: 80) {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     Text("First Name: \(service.userDetails?.firstName ?? "")")
+                        .customProfileText()
                     Text("Last Name: \(service.userDetails?.lastName ?? "")")
+                        .customProfileText()
                     Text("Educational Institution: \(service.userDetails?.educationUnit ?? "")")
+                        .customProfileText()
                     Text("Class/Group: \(service.userDetails?.groups ?? "")")
+                        .customProfileText()
                 }
                 
-                ButtonComponentView(title: "LogOut", background: .blue, foreground: .white, border: .blue) {
+                ButtonComponentView(title: "Log Out", background: Color.darkPurple, foreground: .white, border: .clear) {
                     service.logout()
                 }
+                .frame(maxWidth: 360)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)

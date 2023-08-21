@@ -16,36 +16,38 @@ struct RegisterView: View {
     
     var body: some View {
         
-            VStack(spacing: 30) {
+        VStack(spacing: 30) {
+            
+            VStack(spacing: 16) {
+                InputDetailsView(text: $vm.userDetails.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
+                InputPasswordView(password: $vm.userDetails.password, placeholder: "Enter your password", sfSymbol: "lock")
                 
-                VStack(spacing: 16) {
-                    InputDetailsView(text: $vm.userDetails.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
-                    InputPasswordView(password: $vm.userDetails.password, placeholder: "Enter your password", sfSymbol: "lock")
-                    
-                    Divider()
-                    InputDetailsView(text: $vm.userDetails.firstName, placeholder: "Enter your first name", keyboardType: .default, sfSymnol: "nil")
-                    InputDetailsView(text: $vm.userDetails.lastName, placeholder: "Enter your last name", keyboardType: .namePhonePad, sfSymnol: "nil")
-                    InputDetailsView(text: $vm.userDetails.educationUnit, placeholder: "Enter your educational institution", keyboardType: .namePhonePad, sfSymnol: "nil")
-                    InputDetailsView(text: $vm.userDetails.groups, placeholder: "Enter your class/group", keyboardType: .namePhonePad, sfSymnol: "nil")
-                }
-                
-                ButtonComponentView(title: "Sign Up", background: .blue, foreground: .white, border: .blue) {
-                    validateInputs()
-                }
+                Divider()
+                InputDetailsView(text: $vm.userDetails.firstName, placeholder: "Enter your first name", keyboardType: .default, sfSymnol: "nil")
+                InputDetailsView(text: $vm.userDetails.lastName, placeholder: "Enter your last name", keyboardType: .namePhonePad, sfSymnol: "nil")
+                InputDetailsView(text: $vm.userDetails.educationUnit, placeholder: "Enter your educational institution", keyboardType: .namePhonePad, sfSymnol: "nil")
+                InputDetailsView(text: $vm.userDetails.groups, placeholder: "Enter your class/group", keyboardType: .namePhonePad, sfSymnol: "nil")
             }
-            .padding(.horizontal, 15)
-            .navigationBarTitleDisplayMode(.large)
-            .navigationTitle("Register")
-            .alert(isPresented: $vm.isError,
-                   content: {
-                if case .failed(let error) = vm.state {
-                    return Alert(title: Text("Error"),
-                                 message: Text(error.localizedDescription))
-                } else {
-                    return Alert(title: Text("Error"),
-                                 message: Text(errorMessage))
-                }
-            })
+            
+            ButtonComponentView(title: "Sign Up", background: Color.darkPurple, foreground: .white, border: .clear) {
+                validateInputs()
+            }
+        }
+        .padding(.horizontal, 15)
+        .navigationTitle("Register")
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .edgesIgnoringSafeArea(.all)
+        .background(Color.dustyGray)
+        .alert(isPresented: $vm.isError,
+               content: {
+            if case .failed(let error) = vm.state {
+                return Alert(title: Text("Error"),
+                             message: Text(error.localizedDescription))
+            } else {
+                return Alert(title: Text("Error"),
+                             message: Text(errorMessage))
+            }
+        })
     }
     
     

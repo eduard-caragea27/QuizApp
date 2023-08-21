@@ -39,10 +39,12 @@ struct QuizApplicationApp: App {
                                 Label("Quiz", systemImage: "questionmark.circle")
                             }
                     }
+                    
                 case .loggedOut:
                     LoginView()
                 }
             }
+            .accentColor(Color.darkPurple)
         }
     }
 }

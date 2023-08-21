@@ -15,13 +15,12 @@ struct QuizView: View {
         if quizManager.reachedEnd {
             VStack(spacing: 20) {
                 Text("Quiz Game")
-                    .foregroundColor(Color.darkPurple)
-                    .font(.system(size: 30, weight: .bold))
-                Text("Congratulations, you completed the game!")
-                    .foregroundColor(Color.darkPurple)
-                    .font(.system(size: 15, weight: .bold))
+                    .customTitle()
+                Text("Congratulations, you completed the quiz!")
+                    .customProfileText()
                 
                 Text("Your score is: \(quizManager.score) out of \(quizManager.length)")
+                    .customInfoText()
             }
             .navigationBarBackButtonHidden(true)
             .foregroundColor(Color.darkPurple)

@@ -37,22 +37,21 @@ struct LoginView: View {
                             showForgotPassword.toggle()
                         }, label: {
                             Text("Forgot Password?")
+                                .customInfoText()
                         })
-                        .font(.system(size: 16, weight: .bold))
                     })
-                    
                 }
             }
             
             VStack(spacing: 22) {
-                ButtonComponentView(title: "Login", background: .blue, foreground: .white, border: .clear) {
+                ButtonComponentView(title: "Login", background: Color.darkPurple, foreground: .white, border: .clear) {
                     validateInputs()
                 }
                 
                 NavigationLink(destination: RegisterView(),
                                isActive: $showRegistration,
                                label: {
-                    ButtonComponentView(title: "Register", background: .white, foreground: .blue, border: .blue) {
+                    ButtonComponentView(title: "Register", background: .white, foreground: Color.darkPurple, border: Color.darkPurple) {
                         showRegistration.toggle()
                     }
                 })
@@ -60,6 +59,9 @@ struct LoginView: View {
         }
         .padding(.horizontal, 15)
         .navigationTitle("Login")
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .edgesIgnoringSafeArea(.all)
+        .background(Color.dustyGray)
         .alert(isPresented: $vm.isError,
                content: {
             if case .failed(let error) = vm.state {
