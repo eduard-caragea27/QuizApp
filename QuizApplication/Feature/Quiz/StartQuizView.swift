@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PrimaryQuizView: View {
+struct StartQuizView: View {
     @StateObject var quizManager = QuizManager()
     
     var body: some View {
@@ -33,12 +33,11 @@ struct PrimaryQuizView: View {
             .edgesIgnoringSafeArea(.all)
             .background(Color.dustyGray)
         }
-        
     }
 }
 
-struct PrimaryQuizView_Previews: PreviewProvider {
+struct StartQuizView_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryQuizView()
+        StartQuizView()
     }
 }

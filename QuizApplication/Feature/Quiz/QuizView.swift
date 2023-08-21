@@ -11,31 +11,26 @@ struct QuizView: View {
     @EnvironmentObject var quizManager: QuizManager
     
     var body: some View {
-        NavigationView {
+        
         if quizManager.reachedEnd {
-                VStack(spacing: 20) {
-                    Text("Quiz Game")
-                        .foregroundColor(Color.darkPurple)
-                        .font(.system(size: 30, weight: .bold))
-                    Text("Congratulations, you completed the game!")
-                        .foregroundColor(Color.darkPurple)
-                        .font(.system(size: 15, weight: .bold))
-                    
-                    Text("Your score is: \(quizManager.score) out of \(quizManager.length)")
-                    
-                    NavigationLink(destination: ProfileView()) {
-                        QuizButtonView(text: "Go to Profile")
-                    }
-                }
-                .foregroundColor(Color.darkPurple)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.dustyGray)
-                .navigationBarHidden(true)
-            } else {
-                QuestionView()
-                    .environmentObject(quizManager)
+            VStack(spacing: 20) {
+                Text("Quiz Game")
+                    .foregroundColor(Color.darkPurple)
+                    .font(.system(size: 30, weight: .bold))
+                Text("Congratulations, you completed the game!")
+                    .foregroundColor(Color.darkPurple)
+                    .font(.system(size: 15, weight: .bold))
+                
+                Text("Your score is: \(quizManager.score) out of \(quizManager.length)")
             }
+            .navigationBarBackButtonHidden(true)
+            .foregroundColor(Color.darkPurple)
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.dustyGray)
+        } else {
+            QuestionView()
+                .environmentObject(quizManager)
         }
     }
 }

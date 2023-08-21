@@ -15,19 +15,19 @@ struct ProfileView: View {
             VStack(alignment: .leading, spacing: 50) {
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("First Name: \(service.userDetails?.firstName ?? "N/A")")
-                    Text("Last Name: \(service.userDetails?.lastName ?? "N/A")")
-                    Text("Educational Institution: \(service.userDetails?.educationUnit ?? "N/A")")
-                    Text("Class/Group: \(service.userDetails?.groups ?? "N/A")")
-                    Text("Your score: <PlaceHolders>")
+                    Text("First Name: \(service.userDetails?.firstName ?? "")")
+                    Text("Last Name: \(service.userDetails?.lastName ?? "")")
+                    Text("Educational Institution: \(service.userDetails?.educationUnit ?? "")")
+                    Text("Class/Group: \(service.userDetails?.groups ?? "")")
                 }
                 
                 ButtonComponentView(title: "LogOut", background: .blue, foreground: .white, border: .blue) {
                     service.logout()
                 }
             }
-            
-            .padding(.horizontal, 15)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.all)
+            .background(Color.dustyGray)
             .navigationTitle("Profile")
         }
     }

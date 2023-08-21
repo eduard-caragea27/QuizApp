@@ -34,11 +34,10 @@ struct QuizApplicationApp: App {
                             }
                             .environmentObject(sessionService)
                         
-                        PrimaryQuizView()
+                        StartQuizView()
                             .tabItem {
                                 Label("Quiz", systemImage: "questionmark.circle")
                             }
-                            
                     }
                 case .loggedOut:
                     LoginView()
