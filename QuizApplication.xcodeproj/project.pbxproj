@@ -204,9 +204,9 @@
 		E438843D29E2ED6100F1BB30 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E470A1F62A97B0D50047FF12 /* View */,
 				E4DC89622A3C619500725CD5 /* Service */,
 				E4DC895E2A3C611100725CD5 /* ViewModel */,
-				E438843E29E2ED7500F1BB30 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -229,9 +229,9 @@
 		E466414929F44E4B001230C6 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				E470A1F72A97B0ED0047FF12 /* View */,
 				E40C3DFC29F542C20002CE22 /* Service */,
 				E40321C329FE6B6A00EE67B9 /* ViewModel */,
-				E466414A29F44E7B001230C6 /* RegisterView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 		E466416629F46B0F001230C6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				E466416729F46B26001230C6 /* ProfileView.swift */,
+				E470A1F82A97B0FD0047FF12 /* View */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -247,21 +247,53 @@
 		E466416929F46DA8001230C6 /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
-				E4114BF72A407B7400C6C91C /* ViewModel */,
-				E4114BF32A4079B100C6C91C /* Service */,
 				E4114BF42A4079BE00C6C91C /* View */,
+				E4114BF32A4079B100C6C91C /* Service */,
+				E4114BF72A407B7400C6C91C /* ViewModel */,
 			);
 			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		E470A1F52A97B0B50047FF12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E424E5452A926408003766CA /* QuestionView.swift */,
+				E424E5472A926431003766CA /* QuizView.swift */,
+				E407C5AE2A93324300A303B7 /* StartQuizView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E470A1F62A97B0D50047FF12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E438843E29E2ED7500F1BB30 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E470A1F72A97B0ED0047FF12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E466414A29F44E7B001230C6 /* RegisterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E470A1F82A97B0FD0047FF12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E466416729F46B26001230C6 /* ProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E47D98FD2A4462690090D259 /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				E470A1F52A97B0B50047FF12 /* View */,
 				E424E5422A925AD3003766CA /* Manager */,
 				E424E5302A922E96003766CA /* ViewModel */,
-				E424E5452A926408003766CA /* QuestionView.swift */,
-				E424E5472A926431003766CA /* QuizView.swift */,
-				E407C5AE2A93324300A303B7 /* StartQuizView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";

@@ -11,7 +11,6 @@ struct LoginView: View {
     @State private  var showRegistration = false
     @State private var showForgotPassword = false
     @State private var errorMessage = ""
-    
     @StateObject private var vm = LoginViewModelImplementation(service: LoginServiceImplementation())
     
     var body: some View {
@@ -22,7 +21,7 @@ struct LoginView: View {
                 InputDetailsView(text: $vm.credentials.email,
                                  placeholder: "Email",
                                  keyboardType: .emailAddress,
-                                 sfSymnol: "envelope")
+                                 sfSymbol: "envelope")
                 
                 InputPasswordView(password: $vm.credentials.password,
                                   placeholder: "Your password",

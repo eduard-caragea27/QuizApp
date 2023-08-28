@@ -12,7 +12,7 @@ struct InputDetailsView: View {
     @Binding var text: String
     let placeholder: String
     let keyboardType: UIKeyboardType
-    let sfSymnol: String?
+    let sfSymbol: String?
     
     private let textFieldLeading: CGFloat = 30
     
@@ -23,11 +23,11 @@ struct InputDetailsView: View {
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .frame(maxWidth: .infinity, minHeight: 45)
-                .padding(.leading, sfSymnol == nil ? textFieldLeading / 2 : textFieldLeading )
+                .padding(.leading, sfSymbol == nil ? textFieldLeading / 2 : textFieldLeading )
                 .keyboardType(keyboardType)
             
             
-            if let systemImage = sfSymnol {
+            if let systemImage = sfSymbol {
                 Image(systemName: systemImage)
                     .font(.system(size: 15, weight: .light))
                     .padding(.leading, 5)
@@ -42,12 +42,12 @@ struct InputDetailsView: View {
 struct InputDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            InputDetailsView(text: .constant(""), placeholder: "Email", keyboardType: .emailAddress, sfSymnol: "envelope")
+            InputDetailsView(text: .constant(""), placeholder: "Email", keyboardType: .emailAddress, sfSymbol: "envelope")
                 .previewLayout(.sizeThatFits)
                 .previewDisplayName("Email with sfSymbol")
                 .padding()
             
-            InputDetailsView(text: .constant(""), placeholder: "FirstName", keyboardType: .default, sfSymnol: "nil")
+            InputDetailsView(text: .constant(""), placeholder: "FirstName", keyboardType: .default, sfSymbol: "nil")
                 .previewLayout(.sizeThatFits)
                 .previewDisplayName("First Name without sfSymbol")
                 .padding()

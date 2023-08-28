@@ -12,7 +12,7 @@ struct ResetPasswordView: View {
     
     var body: some View {
             VStack(spacing: 20) {
-                InputDetailsView(text: $vm.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymnol: "envelope")
+                InputDetailsView(text: $vm.email, placeholder: "Enter your email", keyboardType: .emailAddress, sfSymbol: "envelope")
                 
                 ButtonComponentView(title: "Send", background: Color.darkPurple, foreground: .white, border: .clear) {
                     vm.sendPassReset()
